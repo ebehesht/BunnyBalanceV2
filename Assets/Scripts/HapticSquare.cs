@@ -25,6 +25,7 @@ public class HapticSquare : MonoBehaviour {
     //Called at start of application.
     void Start()
     {
+        Debug.Log("executing haptic settings script");
         //Connect to the service and begin intializing the haptic resources.
         InitHaptics();
     }
@@ -70,7 +71,21 @@ public class HapticSquare : MonoBehaviour {
         mHapticView.SetOrientation(Screen.orientation);
 
         //Retrieve texture data from bitmap.
-        Texture2D _texture = Resources.Load("Textures/noise_texture") as Texture2D;
+        string imagePath = "";
+
+        switch (this.gameObject.name)
+        {
+            case "SquareHaptic1":
+                imagePath = "Textures/noise/noise_texture4_scaled";
+                break;
+            case "SquareHaptic3":
+                imagePath = "Textures/match";
+                break;
+            case "SquareHaptic5":
+                imagePath = "Textures/noise/noise_texture0_scaled";
+                break;
+        }
+        Texture2D _texture = Resources.Load(imagePath) as Texture2D;
         byte[] textureData = TanvasTouch.HapticUtil.CreateHapticDataFromTexture(_texture, TanvasTouch.HapticUtil.Mode.Brightness);
 
         //Create a haptic texture with the retrieved texture data.
@@ -111,6 +126,22 @@ public class HapticSquare : MonoBehaviour {
                 //hapticOnOffButton.GetComponent<Image>().sprite = hapticsOn;
                 //hapticViewStateText.text = "Deactivate Haptics";
             }
+        }
+    }
+
+    public void ActivateHaptic()
+    {
+        if (mHapticView != null)
+        {
+            mHapticView.Activate();
+        }
+    }
+
+    public void DeactivateHaptic()
+    {
+        if (mHapticView != null)
+        {
+            mHapticView.Deactivate();
         }
     }
 

@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bunny
+  - Seesaw
+  - LeftSeat
+  - RightSeat
+  - Button
+  - Bunny1
+  - Bunny3
+  - Bunny5
   layers:
   - Default
   - TransparentFX
@@ -13,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Foreground
   - 
   - 
   - 
@@ -41,6 +49,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
+  - name: Middleground
     uniqueID: 1083860075
+    locked: 0
+  - name: Foreground
+    uniqueID: 2023788483
     locked: 0
