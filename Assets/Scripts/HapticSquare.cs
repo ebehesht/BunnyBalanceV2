@@ -76,13 +76,13 @@ public class HapticSquare : MonoBehaviour {
         switch (this.gameObject.name)
         {
             case "SquareHaptic1":
-                imagePath = "Textures/noise/noise_texture4_scaled";
+                imagePath = "Textures/noise_highres/noise-blur";
                 break;
             case "SquareHaptic3":
-                imagePath = "Textures/match";
+                imagePath = "Textures/noise_highres/noise-original";
                 break;
             case "SquareHaptic5":
-                imagePath = "Textures/noise/noise_texture0_scaled";
+                imagePath = "Textures/noise_highres/noise-sharp";
                 break;
         }
         Texture2D _texture = Resources.Load(imagePath) as Texture2D;

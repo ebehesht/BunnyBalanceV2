@@ -62,7 +62,7 @@ public class TouchEvents : MonoBehaviour {
                     //Debug.Log("Touched " + touchedBunny.name);
 
 
-                    // Activate the haptics view
+                    //Activate the haptics view
                     switch (touchedBunny.tag)
                     {
                         case "Bunny1":
@@ -107,7 +107,7 @@ public class TouchEvents : MonoBehaviour {
         if (Input.touchCount > 0 && bunnyIsTapped && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
 
-            // Deactivate the haptics view
+            //Deactivate the haptics view
             switch (touchedBunny.tag)
             {
                 case "Bunny1":
@@ -121,7 +121,7 @@ public class TouchEvents : MonoBehaviour {
                     break;
             }
 
-        bunnyIsTapped = false; //end the touch
+            bunnyIsTapped = false; //end the touch
 
             //if (GlobalVariables.collidedSeat != null)
             touchedBunny.GetComponent<BunnyPlayer>().TouchUp();

@@ -33,15 +33,17 @@ public class Seesaw : MonoBehaviour {
         JointAngleLimits2D limits = seesawJoint.limits;
 
         float speed = 0.0f;
-        float seesawAngleMin = -5.0f;
-        float seesawAngleMax = 5.0f;
+        float angle = 5.0f;
+        float seesawAngleMin = -1 * angle;
+        float seesawAngleMax = angle;
+
         if (GlobalVariables.leftWeight > GlobalVariables.rightWeight)
         {// left side is heavier, but check if this has changed from previous status
             if (this.status != "leftTilted")
             {
                 speed = -50.0f;
-                seesawAngleMin = -5.0f;
-                seesawAngleMax = 5.0f;
+                seesawAngleMin = -1 * angle;
+                seesawAngleMax = angle;
                 this.status = "leftTilted";
             }
 
@@ -51,8 +53,8 @@ public class Seesaw : MonoBehaviour {
             if (this.status != "rightTilted")
             {
                 speed = 50.0f;
-                seesawAngleMin = -5.0f;
-                seesawAngleMax = 5.0f;
+                seesawAngleMin = -1 * angle;
+                seesawAngleMax = angle;
                 this.status = "rightTilted";
             }
         }
@@ -61,7 +63,7 @@ public class Seesaw : MonoBehaviour {
             if (this.status == "leftTilted")
             {
                 speed = 50.0f;
-                seesawAngleMin = -5.0f;
+                seesawAngleMin = -1 * angle;
                 seesawAngleMax = 0.0f;
                 this.status = "balanced";
 
@@ -70,7 +72,7 @@ public class Seesaw : MonoBehaviour {
             { // it is tilted ot the right
                 speed = -50.0f;
                 seesawAngleMin = 0.0f;
-                seesawAngleMax = 5.0f;
+                seesawAngleMax = angle;
                 this.status = "balanced";
             }
 

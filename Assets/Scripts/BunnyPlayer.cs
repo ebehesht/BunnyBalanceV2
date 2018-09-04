@@ -27,8 +27,8 @@ public class BunnyPlayer : MonoBehaviour {
         {
             case "Bunny1":
                 this.weight = 1;
-                this.initX = -5.25f;
-                this.initY = -3.0f;
+                this.initX = -5.19f;
+                this.initY = -3.41f;
                 break;
             case "Bunny2":
                 this.weight = 2;
@@ -37,8 +37,8 @@ public class BunnyPlayer : MonoBehaviour {
                 break;
             case "Bunny3":
                 this.weight = 3;
-                this.initX = -0.79f;
-                this.initY = -2.8f;
+                this.initX = -0.70f;
+                this.initY = -3.18f;
                 this.onSeatPosBalanced += new Vector3(0.0f, 0.2f, 0.0f);
                 this.onSeatPosDown += new Vector3(0.0f, 0.2f, 0.0f);
                 this.onSeatPosUp += new Vector3(0.0f, 0.2f, 0.0f);
@@ -50,8 +50,8 @@ public class BunnyPlayer : MonoBehaviour {
                 break;
             case "Bunny5":
                 this.weight = 5;
-                this.initX = 4.85f;
-                this.initY = -2.65f;
+                this.initX = 4.92f;
+                this.initY = -3.0f;
                 this.onSeatPosBalanced += new Vector3(0.0f, 0.4f, 0.0f);
                 this.onSeatPosDown += new Vector3(0.0f, 0.4f, 0.0f);
                 this.onSeatPosUp += new Vector3(0.0f, 0.4f, 0.0f);
@@ -90,7 +90,6 @@ public class BunnyPlayer : MonoBehaviour {
         {
             Debug.Log("recalculate the weight on seesaw");
             RemoveBunny();
-            //Destroy(this);
             seesaw.GetComponent<Seesaw>().Move();
 
         }
@@ -223,11 +222,13 @@ public class BunnyPlayer : MonoBehaviour {
             GlobalVariables.rightWeight -= this.weight;
         }
 
-        this.GetComponent<HingeJoint2D>().enabled = false;
-        this.oldSeat = null;
-        this.seesawSide = "None";
+        Destroy(this.gameObject);
 
-        this.gameObject.transform.position = new Vector3(initX, initY, 0.0f);
+        //this.GetComponent<HingeJoint2D>().enabled = false;
+        //this.oldSeat = null;
+        //this.seesawSide = "None";
+
+        //this.gameObject.transform.position = new Vector3(initX, initY, 0.0f);
 
 
     }
